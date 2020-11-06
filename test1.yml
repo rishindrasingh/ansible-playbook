@@ -1,0 +1,11 @@
+---
+- name: test script to copy files
+  hosts: all
+  become: true
+  
+  tasks:
+  - copy:
+      src: /var/log/messages
+      dest: /opt/test/dist
+      backup: yes
+      remote_src: no
