@@ -1,11 +1,7 @@
 ---
-- name: test script to copy files
-  hosts: all
-  become: true
-  
+- hosts: lab
   tasks:
-  - copy:
-      src: /var/log/messages
-      dest: /opt/test/dist
-      backup: yes
-      remote_src: no
+    - name: create a file
+      copy:
+        content: "hello, this a file created via jenkins execution of playbook"
+        dest: /tmp/testfile.txt
